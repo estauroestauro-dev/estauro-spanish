@@ -4,14 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ESTAURO SPANISH · Deutsch + Español</title>
+<meta name="theme-color" content="#4f8cff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ESTAURO SPANISH">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{--ink:#24324a;--muted:#687386;--line:#e6e9ef;--accent:#ff9d4d;--blue:#4f8cff;--bg1:#fff8e8;--bg2:#eef6ff}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--bg1),var(--bg2));min-height:100vh}.app{max-width:1180px;margin:auto;padding:18px}.top,.card{background:#fff;border:2px solid var(--line);border-radius:24px;box-shadow:0 8px 24px #0000000d}.top{padding:20px;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.brand{font-weight:900;font-size:30px}.sub{color:var(--muted);line-height:1.45}.stats{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:9px 13px;border:2px solid var(--line);border-radius:999px;background:#fff;font-weight:700}.audience{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}.aud{padding:30px;text-align:center;cursor:pointer;transition:.15s}.aud .ico{font-size:64px}.aud:hover,.tile:hover,.nav button:hover{transform:translateY(-2px);box-shadow:0 10px 24px #0001}.btn{border:0;border-radius:14px;padding:12px 18px;background:var(--blue);color:white;font-weight:800;cursor:pointer}.secondary{background:#fff;color:var(--ink);border:2px solid var(--line)}.hidden{display:none!important}.nav{display:flex;flex-wrap:wrap;gap:8px;padding:14px 0}.nav button{border:2px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-weight:700;cursor:pointer}.nav button.active{background:#eef4ff;border-color:#9dbbff}.panel{padding:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:16px}.tile{border:2px solid var(--line);background:#fff;border-radius:18px;padding:18px;text-align:center;cursor:pointer;transition:.15s}.emoji{font-size:38px}.es{font-size:20px;font-weight:900;margin-top:7px}.de{color:var(--muted);margin-top:4px}.note{background:#f6f8fb;border-radius:14px;padding:13px;margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.quiz button{display:block;width:100%;margin:8px 0;text-align:left}.back{margin:14px 0}.progress{height:12px;background:#edf0f5;border-radius:999px;overflow:hidden;margin-top:10px}.progress div{height:100%;background:linear-gradient(90deg,#ffd95a,#ff9d4d);width:0}.footer{text-align:center;color:var(--muted);padding:24px}.intro{background:#f8fbff;border:2px solid var(--line);border-radius:18px;padding:14px;margin-top:12px}.small{font-size:14px}.mode-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.mode-title h2{margin:0}.badge{font-size:13px;background:#fff3df;border:1px solid #ffd39e;border-radius:999px;padding:5px 9px}
+.install-btn{border:0;border-radius:14px;padding:11px 16px;background:#24324a;color:#fff;font-weight:800;cursor:pointer}.install-btn.hidden{display:none!important}
 @media(max-width:700px){.audience{grid-template-columns:1fr}.brand{font-size:24px}.app{padding:10px}.panel{padding:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.es{font-size:18px}.top{padding:16px}}
 </style>
 </head>
 <body><div class="app">
-<header class="top"><div><div class="brand">🌍 ESTAURO SPANISH</div><div class="sub">Deutsch (Schweiz) + Español · Lernen mit Audio, Übungen und Spielen · Aprende con audio, ejercicios y juegos</div></div><div class="stats"><span class="pill" id="points">⭐ 0 Punkte / puntos</span><span class="pill" id="done">0 Lektionen / lecciones</span></div></header>
+<header class="top"><div><div class="brand">🌍 ESTAURO SPANISH</div><div class="sub">Deutsch (Schweiz) + Español · Lernen mit Audio, Übungen und Spielen · Aprende con audio, ejercicios y juegos</div></div><div class="stats"><span class="pill" id="points">⭐ 0 Punkte / puntos</span><span class="pill" id="done">0 Lektionen / lecciones</span><button id="installBtn" class="install-btn hidden">📲 Installieren · Instalar</button></div></header>
 <section id="home"><div style="text-align:center;margin:28px 0 10px"><h1>Wähle deinen Lernbereich · Elige tu área de aprendizaje</h1><p class="sub">Für Kinder und Erwachsene · Para niños y adultos</p></div><div class="audience"><div class="card aud" onclick="openMode('kids')"><div class="ico">🧒🎈</div><h2>Kinder · Niños</h2><p>Spielerisch Spanisch lernen: Alphabet, Zahlen, Farben, Tiere und mehr.<br><span class="sub">Aprende español jugando: alfabeto, números, colores, animales y más.</span></p><button class="btn">Starten · Empezar</button></div><div class="card aud" onclick="openMode('adult')"><div class="ico">🧑‍💼🌎</div><h2>Erwachsene · Adultos</h2><p>Spanisch von Anfang an für Alltag, Reisen, Arbeit und Gespräche.<br><span class="sub">Español desde cero para la vida diaria, viajes, trabajo y conversaciones.</span></p><button class="btn">Starten · Empezar</button></div></div></section>
 <section id="course" class="hidden"><button class="btn secondary back" onclick="goHome()">← Auswahl · Selección</button><div class="mode-title"><h2 id="modeTitle"></h2><span class="badge">Deutsch (Schweiz) + Español</span></div><div class="progress"><div id="bar"></div></div><div class="nav" id="nav"></div><div class="card panel" id="panel"></div></section>
 <div class="footer">ESTAURO SPANISH · Kostenlose Lernversion · Versión gratuita</div></div>
@@ -51,4 +58,39 @@ function complete(){let id=mode+':'+current;if(!state.done.includes(id)){state.d
 function quiz(){let data=(mode==='kids'?kidLessons:adultLessons)[current];let q=data[Math.floor(Math.random()*data.length)];let opts=[q,...data.filter(x=>x!==q).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);let p=document.getElementById('panel');p.innerHTML=`<h2>🎯 Mini-Quiz · Mini cuestionario</h2><p>Was bedeutet <b>${q[2]}</b> auf Spanisch? · ¿Qué significa <b>${q[2]}</b> en español?</p><div class="quiz">${opts.map(x=>`<button class="btn secondary" onclick="answer('${x[1].replaceAll("'","\\'")}','${q[1].replaceAll("'","\\'")}')">${x[1]}</button>`).join('')}</div><button class="btn secondary" onclick="render(current)">← Zurück · Volver</button>`}
 function answer(a,b){if(a===b){state.points+=5;save();speak(b);alert('✅ Richtig! · ¡Correcto! +5 Punkte / puntos')}else alert('❌ Versuch es noch einmal · Inténtalo otra vez')}
 save();
-</script></body></html>
+</script>
+<script>
+let deferredInstallPrompt = null;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  if (installBtn) installBtn.classList.remove('hidden');
+});
+
+if (installBtn) {
+  installBtn.addEventListener('click', async () => {
+    if (!deferredInstallPrompt) {
+      alert('Android: Menü des Browsers → App installieren / Instalar aplicación.\n\niPhone/iPad: Safari → Teilen / Compartir → Zum Home-Bildschirm / Añadir a pantalla de inicio.');
+      return;
+    }
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    installBtn.classList.add('hidden');
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  if (installBtn) installBtn.classList.add('hidden');
+});
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+  });
+}
+</script>
+
+</body></html>
